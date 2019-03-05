@@ -1,0 +1,46 @@
+ <form #f="ngForm">
+   <div *ngIf="auth.isLog()">
+  <fieldset>
+  <legend>Турнир</legend>
+  </fieldset>
+  <app-tournament-table></app-tournament-table>
+  <fieldset>
+  <legend>Добавить команду</legend>
+  </fieldset>
+  <div class="row">
+      <div class="col-12 col-sm-6">
+      <app-select-field  name = "team_id" 
+      [(ngModel)]="tournament.team_id" 
+      placeholder="Выберете команду"></app-select-field>
+      </div>
+  <!-- <div class="col-12 col-sm-6">
+  <app-input-field name="team"
+  placeholder="Команда"
+  [(ngModel)]="tournament.teamName"
+  [required]="true"></app-input-field>
+  </div> -->
+  <div class="col-12 col-sm-6">
+  <app-input-field name="win"
+  placeholder="Побед"
+  [(ngModel)]="tournament.win"
+  [required]="true"></app-input-field>
+  </div>
+  <div class="col-12 col-sm-6">
+  <app-input-field name="defeats"
+  placeholder="Поражений"
+  [(ngModel)]="tournament.defeats"
+  [required]="true"></app-input-field>
+  </div> 
+  <div class="col-12 col-sm-6">
+  <app-tournament-field name = "listtournament_id" 
+  [(ngModel)]="tournament.listtournament_id" 
+  placeholder="Выберете турнир"></app-tournament-field>
+  </div>
+  </div>
+  <button mat-button
+  [disabled]="!form.valid"
+  color="primary"
+  (click)="addTournament()">Добавить команду
+  </button> 
+</div>
+</form>

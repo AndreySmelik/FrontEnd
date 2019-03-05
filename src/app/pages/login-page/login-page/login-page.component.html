@@ -1,0 +1,25 @@
+<form  #f="ngForm">
+    <fieldset>
+        <legend>Авторизация</legend>
+        </fieldset>
+        <div class="row">
+        <div class="col-12 col-sm-6">
+        <app-input-field name="username"
+        placeholder="логин"
+        [(ngModel)]="users.username"
+        [required]="true"></app-input-field>
+        </div>
+        <div class="col-12 col-sm-6">
+        <app-input-field name="password"
+        placeholder="пароль"
+        [(ngModel)]="users.password"
+        [required]="true"></app-input-field>
+        </div>
+        </div>
+        <button mat-button
+        (click)="checkUsers()"
+        color="primary">войти</button>  
+        <button mat-button
+        (click)="addUsers()"
+        color="primary">зарегистрироваться</button>     
+</form> 

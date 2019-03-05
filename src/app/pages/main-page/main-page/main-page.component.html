@@ -1,0 +1,85 @@
+<div *ngIf="auth.isLog()">
+<form #f="ngForm">
+    <fieldset>
+    <legend>Добавить команду</legend>
+    </fieldset>
+    <div class="row">
+    <div class="col-12 col-sm-6">
+    <app-input-field name="team"
+    placeholder="Команда"
+    [(ngModel)]="team.teamName"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="region"
+    placeholder="Регион"
+    [(ngModel)]="team.region"
+    [required]="true"></app-input-field>
+    </div>
+    </div>
+    <button mat-button
+    color="primary"
+    (click)="addTeam()">Добавить команду
+    </button>  
+       
+    <fieldset>
+    <legend>Добавить игрока</legend>
+    </fieldset>
+    <div class="row">
+    <div class="col-12 col-sm-6">
+    <app-input-field name="country"
+    placeholder="Страна"
+    [(ngModel)]="player.country"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="fullName"
+    placeholder="Имя"
+    [(ngModel)]="player.fullName"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="nickName"
+    placeholder="Ник"
+    [(ngModel)]="player.nickName"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="position"
+    placeholder="Позиция"
+    [(ngModel)]="player.position"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="points"
+    placeholder="Очки"
+    [(ngModel)]="player.points"
+    [required]="true"></app-input-field>
+    </div>
+  <!--  <div>
+    <mat-form-field class="col-12 col-sm-25">
+            <mat-select placeholder="Команда">
+              <mat-option *ngFor="let name of teams" [value]="name.value"
+              [(ngModel)]="name.id" name="team_id">{{name.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>  
+    </div>-->
+    <div class="col-12 col-sm-25">
+    <app-select-field name ="team_id" [(ngModel)]="player.team_id" placeholder="Команда"></app-select-field>  
+    </div>
+    </div>
+    <button mat-button
+    color="primary"
+    (click)="addPlayer()">Добавить игрока
+    </button>
+    <!--<pre>{{team | json}}</pre>s [disabled]="!form.valid"-->
+    <fieldset>
+    <legend>Игроки</legend>
+    </fieldset> 
+    <app-data-table></app-data-table>
+    <fieldset>
+    <legend>Команды</legend>
+    </fieldset> 
+    <app-team-table ></app-team-table>
+    </form>
+  </div>

@@ -1,0 +1,42 @@
+<form #f="ngForm">
+    <div *ngIf="auth.isLog()">   
+  <fieldset>
+  <legend>Турниры</legend>
+  </fieldset>
+  <app-list-tournament-table></app-list-tournament-table>
+  <fieldset>
+    <legend>Добавить турнир</legend>
+  </fieldset>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+    <app-input-field name="tournamentName"
+    placeholder="Турнир"
+    [(ngModel)]="listTournament.tournamentName"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="win"
+    placeholder="Кол-во команд"
+    [(ngModel)]="listTournament.maxNumberTeam"
+    [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+    <app-input-field name="defeats"
+    placeholder="Приз"
+    [(ngModel)]="listTournament.prize"
+    [required]="true"></app-input-field>
+    </div> 
+    <div class="col-12 col-sm-6">
+      <app-input-field name="date"
+      placeholder="Дата"
+      [(ngModel)]="listTournament.date"
+      [required]="true"></app-input-field>
+      </div>
+    </div>
+    <button mat-button
+    [disabled]="!form.valid"
+    color="primary"
+    (click)="addListTournament()">Добавить команду
+    </button> 
+  </div>
+</form> 

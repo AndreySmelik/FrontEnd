@@ -1,0 +1,5 @@
+<mat-form-field class="full-width">
+    <mat-select [name] = "name" [(ngModel)]="value" [placeholder]="placeholder">
+        <mat-option *ngFor="let name of teams" [value]="name.id">{{name.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
